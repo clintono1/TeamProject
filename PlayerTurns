@@ -1,0 +1,47 @@
+package stage2;
+
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class playersturn {
+private static String _p;
+static int counter=-1;
+	public static void main(String[] args) {
+		_p = "";
+		JFrame _jf = new JFrame("Player Turn");
+		JPanel _jp = new JPanel();
+		JButton jb = new JButton("End Turn");
+		JButton jb2 = new JButton();
+		_jp.add(jb);
+		
+		jb.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+			if(counter>3){
+				counter = -1;
+			}
+			counter++;
+				_p =args[counter];
+				jb2.setText(_p);
+//			}
+		}});
+		_jp.add(jb2);
+		_jp.setLayout(new GridLayout(2,1));
+		_jf.add(_jp);
+		Dimension d = new Dimension();
+		 d.setSize(900,800);
+		 _jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 _jf.setVisible(true);
+		 _jf.pack();
+		 _jf.setSize(d);
+		
+		// TODO Auto-generated method stub
+
+	}
+
+}
